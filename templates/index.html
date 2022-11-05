@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Prediksi Mortir App</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+ 
+<body>
+ <div class="login">
+    <h1>Prediksi Sudut Mortir</h1>
+        <h3>Masukkan Nilai Isian dan Jarak (Meter)</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predicthtml')}}"method="post">
+        <input type="text" name="isian" placeholder="ISIAN" required="required"/>
+        <input type="text" name="jarak_m" placeholder="JARAK" required="required"/>
+        <!-- <input type="text" name="Waktu Lintas" placeholder="WAKTU LINTAS" required="required"/> -->
+
+        <button type="submit" class="btn">Prediksi</button>
+           <br>
+   <br style="font-weight: bolder">
+   {{ sudut_elevasi_der }}
+   <br style="font-weight: bolder">
+   {{ sudut_elevasi_rad }}
+   <br>
+     <br>
+    </form>
+
+ </div>
+<div> 
+       <img src="{{ MortarGraph }}" ></div>
+</body>
+</html>
